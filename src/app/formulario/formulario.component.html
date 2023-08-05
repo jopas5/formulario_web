@@ -1,0 +1,82 @@
+
+    <div class="container mt-5">
+        <!-- Aquí se muestra el formulario para poder ingresar los datos -->
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-md-12 ">
+                <div class="card w-100">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="mb-0">Formulario</h2>
+                    </div>
+                    <div class="card-body">
+                        <form (submit)="guardarDatos()">
+                            <div class="form-group">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre"
+                                    [(ngModel)]="nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellido:</label>
+                                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingresa tu apellido"
+                                    [(ngModel)]="apellido">
+                            </div>
+                            <div class="form-group">
+                                <label for="carrera">Carrera:</label>
+                                <input type="text" class="form-control" id="carrera" name="carrera" placeholder="Ingresa tu carrera"
+                                    [(ngModel)]="carrera">
+                            </div>
+                            <div class="form-group">
+                                <label for="nivel">Nivel:</label>
+                                <input type="text" class="form-control" id="nivel" name="nivel" placeholder="Ingresa tu nivel"
+                                    [(ngModel)]="nivel">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Ingresa tu correo electrónico" [(ngModel)]="email">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Aquí se mostrará la tabla con los datos -->
+        <div class="table-responsive mt-5 mb-5">
+            <h2 class="text-center mb-3">Datos ingresados</h2>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Carrera</th>
+                        <th>Nivel</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let dato of datos; let i = index">
+                        <td>{{ dato.nombre }}</td>
+                        <td>{{ dato.apellido }}</td>
+                        <td>{{ dato.carrera }}</td>
+                        <td>{{ dato.nivel }}</td>
+                        <td>{{ dato.email }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" (click)="editarRegistro(i)">Editar</button>
+                            <button class="btn btn-sm btn-danger" (click)="eliminarRegistro(i)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <footer class="bg-dark text-white text-center py-3 position-fixed bottom-0 w-100">
+        <p>&copy; 2023 Sánchez Loor Joan Patricio & Briones Ríos Shariff Stephen - Todos los derechos reservados por nadie</p>
+    </footer>
+
+
+
